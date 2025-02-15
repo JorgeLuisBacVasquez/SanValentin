@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Carta Mágica Interactiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style> /* CSS se incluye aquí para facilidad */ </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="hearts-container"></div>
+    
+    <div class="card-container">
+        <div class="card" id="card">
+            <!-- Parte frontal -->
+            <div class="front">
+                <div class="heart-animation">💖</div>
+                <h1>Toca para abrir</h1>
+                <h1>Para: Gaby  </h1>
+                <h1>Feliz San Valentine</h1> 
+            
+            </div>
+            
+            <!-- Contenido interno -->
+            <div class="inner-content">
+                <p class="poem">Eres mi luz en la oscuridad...</p>
+                <img src="gatito.gif" id="giftImage" class="hidden">
+                <button id="magic-button" class="magic-btn">¡Revelar Sorpresa!</button>
+            </div>
+            
+            <!-- Imagen final -->
+            <img src="gaby.jpeg" id="surpriseImage" class="hidden">
+        </div>
+    </div>
+
+    <script> /* JavaScript al final */ </script>
+    <script src="script.js"></script>
+</body>
+</html>

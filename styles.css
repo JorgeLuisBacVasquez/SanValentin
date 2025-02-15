@@ -1,0 +1,171 @@
+/* Estilos Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e8e 100%);
+    font-family: 'Pacifico', cursive;
+    touch-action: manipulation;
+    overflow: hidden;
+}
+
+/* Corazones flotantes */
+.hearts-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    animation: falling-hearts 15s linear infinite;
+}
+
+@keyframes falling-hearts {
+    0% { transform: translateY(-100vh); }
+    100% { transform: translateY(100vh); }
+}
+
+/* Tarjeta Principal */
+.card-container {
+    position: relative;
+    width: 95vw;
+    max-width: 400px;
+    height: 80vh;
+    max-height: 600px;
+    perspective: 1000px;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 20px;
+    transform-style: preserve-3d;
+    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* Parte Frontal */
+.front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+}
+
+.heart-animation {
+    font-size: 6em;
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* Contenido Interno */
+.inner-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #ff758c, #ff7eb3);
+    color: white;
+    transform: rotateY(180deg);
+    opacity: 0;
+    transition: opacity 0.6s;
+}
+
+.poem {
+    font-size: 1.8em;
+    text-align: center;
+    margin: 15px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón Mágico */
+.magic-btn {
+    padding: 12px 35px;
+    font-size: 1.2em;
+    background: linear-gradient(45deg, #ff3366, #ff758c);
+    border: none;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+    box-shadow: 0 5px 20px rgba(255, 51, 102, 0.4);
+}
+
+.magic-btn:active {
+    transform: scale(0.95);
+}
+
+/* Sorpresa Final */
+#surpriseImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: all 1s ease;
+    border-radius: 20px;
+}
+
+/* Estados Activos */
+.card.open {
+    transform: rotateY(180deg);
+}
+
+.card.open .inner-content {
+    opacity: 1;
+}
+
+#surpriseImage.reveal {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-container {
+        height: 70vh;
+    }
+    
+    .poem {
+        font-size: 1.4em;
+    }
+    
+    .magic-btn {
+        font-size: 1em;
+        padding: 10px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .heart-animation {
+        font-size: 4em;
+    }
+    
+    .card {
+        border-radius: 15px;
+    }
+}
